@@ -45,6 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\FormaGeometrica.cs" />
+    <Compile Include="Model\Circulo.cs" />
+    <Compile Include="Model\Cuadrado.cs" />
+    <Compile Include="Model\FormaGeometrica.cs" />
+    <Compile Include="Model\TrianguloEquilatero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
