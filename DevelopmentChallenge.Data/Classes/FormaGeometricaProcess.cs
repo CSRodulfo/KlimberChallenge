@@ -39,7 +39,7 @@ namespace DevelopmentChallenge.Data.Classes
         #endregion
 
 
-        public static string Imprimir(List<FormaGeometrica> formas, int idioma)
+        public static string Imprimir(List<IFormaGeometrica> formas, int idioma)
         {
             var sb = new StringBuilder();
 
@@ -74,19 +74,19 @@ namespace DevelopmentChallenge.Data.Classes
 
                 for (var i = 0; i < formas.Count; i++)
                 {
-                    if (formas[i].Tipo == Cuadrado)
+                    if (formas[i].GetType().Name == "Cuadrado")
                     {
                         numeroCuadrados++;
                         areaCuadrados += formas[i].CalcularArea();
                         perimetroCuadrados += formas[i].CalcularPerimetro();
                     }
-                    if (formas[i].Tipo == Circulo)
+                    if (formas[i].GetType().Name == "Circulo")
                     {
                         numeroCirculos++;
                         areaCirculos += formas[i].CalcularArea();
                         perimetroCirculos += formas[i].CalcularPerimetro();
                     }
-                    if (formas[i].Tipo == TrianguloEquilatero)
+                    if (formas[i].GetType().Name == "TrianguloEquilatero")
                     {
                         numeroTriangulos++;
                         areaTriangulos += formas[i].CalcularArea();

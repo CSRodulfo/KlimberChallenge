@@ -6,10 +6,21 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public class Cuadrado : FormaGeometrica
+    public class Cuadrado : FormaGeometrica, IFormaGeometrica
     {
-        public Cuadrado(int tipo, decimal ancho) : base(tipo, ancho)
+        public Cuadrado(decimal ancho)
+            : base(ancho)
         {
+        }
+
+        public decimal CalcularArea()
+        {
+            return _lado * _lado;
+        }
+
+        public decimal CalcularPerimetro()
+        {
+            return _lado * 4;
         }
     }
 }
