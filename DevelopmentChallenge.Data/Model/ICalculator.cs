@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public interface IFormaGeometrica
+    public interface ICalculator
     {
         decimal CalcularArea();
 

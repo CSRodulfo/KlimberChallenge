@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public class Circulo : FormaGeometrica, IFormaGeometrica
+    public class Circulo : FormaGeometrica, ICalculator
     {
         public Circulo(decimal lado) : base(lado)
         {

@@ -39,7 +39,7 @@ namespace DevelopmentChallenge.Data.Classes
         #endregion
 
 
-        public static string Imprimir(List<IFormaGeometrica> formas, int idioma)
+        public static string Imprimir(List<ICalculator> formas, int idioma)
         {
             var sb = new StringBuilder();
 

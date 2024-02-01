@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public class Cuadrado : FormaGeometrica, IFormaGeometrica
+    public class Cuadrado : FormaGeometrica, ICalculator
     {
         public Cuadrado(decimal ancho)
             : base(ancho)

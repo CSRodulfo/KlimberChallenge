@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public class TrianguloEquilatero : FormaGeometrica, IFormaGeometrica
+    public class TrianguloEquilatero : FormaGeometrica, ICalculator
     {
         public TrianguloEquilatero(decimal lado) : base(lado)
         {
