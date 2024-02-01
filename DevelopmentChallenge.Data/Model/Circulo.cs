@@ -14,7 +14,7 @@ namespace DevelopmentChallenge.Data.Model
 
         public decimal CalcularArea()
         {
-            return ((decimal)Math.Sqrt(3) / 4) * _lado * _lado;
+             return (decimal)Math.PI * (_lado / 2) * (_lado / 2);
         }
 
         public decimal CalcularPerimetro()
