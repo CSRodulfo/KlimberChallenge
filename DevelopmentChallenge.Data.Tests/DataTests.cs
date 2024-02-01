@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using DevelopmentChallenge.Data.Classes;
 using NUnit.Framework;
 
 namespace DevelopmentChallenge.Data.Tests
 {
     [TestFixture]
+    [SetCulture("es-AR")]
     public class DataTests
     {
         [TestCase]
