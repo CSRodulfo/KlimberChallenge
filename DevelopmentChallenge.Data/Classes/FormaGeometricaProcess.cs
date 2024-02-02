@@ -15,8 +15,10 @@
 using DevelopmentChallenge.Data.Model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace DevelopmentChallenge.Data.Classes
 {
@@ -41,6 +43,10 @@ namespace DevelopmentChallenge.Data.Classes
 
         public static string Imprimir(List<FormaGeometrica> formas, int idioma)
         {
+           
+            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+
+
             var sb = new StringBuilder();
 
             if (!formas.Any())
@@ -54,11 +60,11 @@ namespace DevelopmentChallenge.Data.Classes
             {
                 // Hay por lo menos una forma
                 // HEADER
-                if (idioma == Castellano)
-                    sb.Append("<h1>Reporte de Formas</h1>");
-                else
+               // if (idioma == Castellano)
+                    sb.Append(Resource.ShapesReport);
+                //else
                     // default es inglés
-                    sb.Append("<h1>Shapes report</h1>");
+                  //  sb.Append("<h1>Shapes report</h1>");
 
                 Summary summary = new Summary();
 
