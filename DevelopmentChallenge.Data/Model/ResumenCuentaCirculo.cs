@@ -6,15 +6,9 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public class SummaryCountCirculo: SummaryCount
+    public class ResumenCuentaCirculo: ResumenCuenta
     {
-        internal void Sumarizar(Circulo formaGeometrica)
-        {
-            Numero++;
-            this.Area += formaGeometrica.CalcularArea();
-            this.Perimetro += formaGeometrica.CalcularPerimetro();
-        }
-
+  
         public override string GetNombreFigura()
         {
             return this.Numero == 1 ? Resource.Circle : Resource.Circles;

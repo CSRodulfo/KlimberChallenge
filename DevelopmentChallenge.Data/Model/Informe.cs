@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public class Summary
+    public class Informe
     {
-        SummaryCountCuadrado _summaryCountCuadrdo;
-        SummaryCountCirculo _summaryCountCirculo;
-        SummaryCountTrianguloEquilatero _summaryCountTrianguloEquilato;
-        List<SummaryCount> _summary;
+        ResumenCuentaCuadrado _summaryCountCuadrdo;
+        ResumenCuentaCirculo _summaryCountCirculo;
+        ResumenCuentaTrianguloEquilatero _summaryCountTrianguloEquilato;
+        List<ResumenCuenta> _summary;
 
-        public Summary()
+        public Informe()
         {
-            _summary = new List<SummaryCount>();
-            _summaryCountCuadrdo = new SummaryCountCuadrado();
-            _summaryCountCirculo = new SummaryCountCirculo();
-            _summaryCountTrianguloEquilato = new SummaryCountTrianguloEquilatero();
+            _summary = new List<ResumenCuenta>();
+            _summaryCountCuadrdo = new ResumenCuentaCuadrado();
+            _summaryCountCirculo = new ResumenCuentaCirculo();
+            _summaryCountTrianguloEquilato = new ResumenCuentaTrianguloEquilatero();
             _summary.Add(_summaryCountCuadrdo);
             _summary.Add(_summaryCountCirculo);
             _summary.Add(_summaryCountTrianguloEquilato);
@@ -44,7 +44,7 @@ namespace DevelopmentChallenge.Data.Model
             _summaryCountTrianguloEquilato.Sumarizar(formaGeometrica);
         }
 
-        public List<SummaryCount> GetSummary()
+        public List<ResumenCuenta> GetSummary()
         {
             return _summary;
         }

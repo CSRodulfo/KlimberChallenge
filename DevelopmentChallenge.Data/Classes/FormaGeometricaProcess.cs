@@ -34,7 +34,7 @@ namespace DevelopmentChallenge.Data.Classes
 
             {
                 sb.Append(Resource.ShapesReport);
-                Summary summary = new Summary();
+                Informe summary = new Informe();
 
                 foreach (var forma in formas)
                 {
@@ -57,7 +57,7 @@ namespace DevelopmentChallenge.Data.Classes
             return sb.ToString();
         }
 
-        private static string ObtenerLinea(SummaryCount summary)
+        private static string ObtenerLinea(ResumenCuenta summary)
         {
             if (summary.ValidateNumero())
             {

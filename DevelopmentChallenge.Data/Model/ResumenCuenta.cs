@@ -6,18 +6,25 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public class SummaryCountCuadrado : SummaryCount
+    public abstract class ResumenCuenta
     {
-        internal void Sumarizar(Cuadrado formaGeometrica)
+
+        public int Numero { get; set; }
+        public decimal Area { get; set; }
+        public decimal Perimetro { get; set; }
+
+        public void Sumarizar(ICalculator formaGeometrica)
         {
             Numero++;
             this.Area += formaGeometrica.CalcularArea();
             this.Perimetro += formaGeometrica.CalcularPerimetro();
         }
 
-        public override string GetNombreFigura()
-        {
-            return this.Numero == 1 ? Resource.Square : Resource.Squares;
-        }
+        public bool ValidateNumero() { return Numero > 0; }
+
+        public abstract string GetNombreFigura();
+
+
+
     }
 }

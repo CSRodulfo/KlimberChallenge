@@ -6,15 +6,8 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public class SummaryCountTrianguloEquilatero : SummaryCount
+    public class ResumenCuentaTrianguloEquilatero : ResumenCuenta
     {
-        internal void Sumarizar(TrianguloEquilatero formaGeometrica)
-        {
-            Numero++;
-            this.Area += formaGeometrica.CalcularArea();
-            this.Perimetro += formaGeometrica.CalcularPerimetro();
-        }
-
         public override string GetNombreFigura()
         {
             return this.Numero == 1 ? Resource.Triangle : Resource.Triangles;
