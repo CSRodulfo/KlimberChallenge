@@ -67,15 +67,19 @@ namespace DevelopmentChallenge.Data.Classes
                    summary.Sumarice( formas[i]);
                 }
 
-                sb.Append(ObtenerLinea(summary.numeroCuadrados, summary.areaCuadrados, summary.perimetroCuadrados, Cuadrado, idioma));
-                sb.Append(ObtenerLinea(summary.numeroCirculos, summary.areaCirculos, summary.perimetroCirculos, Circulo, idioma));
-                sb.Append(ObtenerLinea(summary.numeroTriangulos, summary.areaTriangulos, summary.perimetroTriangulos, TrianguloEquilatero, idioma));
+                foreach (var item in summary.GetSummary())
+                {
+                    sb.Append(ObtenerLinea(item.Numero, item.Area, item.Perimetro, item.Tipo(), idioma));
+
+                }
+
+                
 
                 // FOOTER
                 sb.Append("TOTAL:<br/>");
-                sb.Append(summary.numeroCuadrados + summary.numeroCirculos + summary.numeroTriangulos + " " + (idioma == Castellano ? "formas" : "shapes") + " ");
-                sb.Append((idioma == Castellano ? "Perimetro " : "Perimeter ") + (summary.perimetroCuadrados + summary.perimetroTriangulos + summary.perimetroCirculos).ToString("#.##") + " ");
-                sb.Append("Area " + (summary.areaCuadrados + summary.areaCirculos + summary.areaTriangulos).ToString("#.##"));
+                sb.Append(summary.GetSummary().Sum(x => x.Numero) + " " + (idioma == Castellano ? "formas" : "shapes") + " ");
+                sb.Append((idioma == Castellano ? "Perimetro " : "Perimeter ") + (summary.GetSummary().Sum(x => x.Perimetro)).ToString("#.##") + " ");
+                sb.Append("Area " + (summary.GetSummary().Sum(x => x.Area)).ToString("#.##"));
             }
 
             return sb.ToString();
@@ -93,6 +97,7 @@ namespace DevelopmentChallenge.Data.Classes
 
             return string.Empty;
         }
+
 
         private static string TraducirForma(int tipo, int cantidad, int idioma)
         {

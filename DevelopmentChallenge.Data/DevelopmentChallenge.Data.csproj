@@ -49,6 +49,10 @@
     <Compile Include="Model\Cuadrado.cs" />
     <Compile Include="Model\FormaGeometrica.cs" />
     <Compile Include="Domain\ICalculator.cs" />
+    <Compile Include="Model\SummaryCountTrianguloEquilatero.cs" />
+    <Compile Include="Model\SummaryCountCirculo.cs" />
+    <Compile Include="Model\SummaryCountCuadrado.cs" />
+    <Compile Include="Model\SummaryCount.cs" />
     <Compile Include="Model\Summary.cs" />
     <Compile Include="Model\TrianguloEquilatero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

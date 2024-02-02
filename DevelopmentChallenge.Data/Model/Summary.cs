@@ -8,24 +8,21 @@ namespace DevelopmentChallenge.Data.Model
 {
     public class Summary
     {
+        public int TotalNumber { get; set; }
+        public decimal TotalArea { get; set; }
+        public decimal TotalPerimetro { get; set; }
 
-        //public int Numero { get; set; }
-        //public decimal Area { get; set; }
-        //public string Perimetro { get; set; }
 
-        public int numeroCuadrados = 0;
-        public int numeroCirculos = 0;
-        public int numeroTriangulos = 0;
+        SummaryCountCuadrado _summaryCountCuadrdo;
+        SummaryCountCirculo _summaryCountCirculo;
+        SummaryCountTrianguloEquilatero _summaryCountTrianguloEquilato;
 
-        public decimal areaCuadrados = 0m;
-        public decimal areaCirculos = 0m;
-        public decimal areaTriangulos = 0m;
-
-        public decimal perimetroCuadrados = 0m;
-        public decimal perimetroCirculos = 0m;
-        public decimal perimetroTriangulos = 0m;
-
-        public Summary() { }
+        public Summary()
+        {
+            _summaryCountCuadrdo = new SummaryCountCuadrado();
+            _summaryCountCirculo = new SummaryCountCirculo();
+            _summaryCountTrianguloEquilato = new SummaryCountTrianguloEquilatero();
+        }
 
         public void Sumarice(FormaGeometrica formaGeometrica)
         {
@@ -34,24 +31,29 @@ namespace DevelopmentChallenge.Data.Model
 
         public void Sumarice(Cuadrado formaGeometrica)
         {
-            numeroCuadrados++;
-            areaCuadrados += formaGeometrica.CalcularArea();
-            perimetroCuadrados += formaGeometrica.CalcularPerimetro();
+            _summaryCountCuadrdo.Sumarizar(formaGeometrica);
+
         }
 
         public void Sumarice(Circulo formaGeometrica)
         {
-            numeroCirculos++;
-            areaCirculos += formaGeometrica.CalcularArea();
-            perimetroCirculos += formaGeometrica.CalcularPerimetro();
+            _summaryCountCirculo.Sumarizar(formaGeometrica);
+
         }
 
         public void Sumarice(TrianguloEquilatero formaGeometrica)
         {
-            numeroTriangulos++;
-            areaTriangulos += formaGeometrica.CalcularArea();
-            perimetroTriangulos += formaGeometrica.CalcularPerimetro();
+            _summaryCountTrianguloEquilato.Sumarizar(formaGeometrica);
+        }
 
+        public List<SummaryCount> GetSummary()
+        {
+            List<SummaryCount> summary = new List<SummaryCount>();
+            summary.Add(_summaryCountCuadrdo);
+            summary.Add(_summaryCountCirculo);
+            summary.Add(_summaryCountTrianguloEquilato);
+
+            return summary;
         }
     }
 }
