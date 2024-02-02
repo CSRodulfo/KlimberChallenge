@@ -13,5 +13,7 @@ namespace DevelopmentChallenge.Data.Model
         {
             _lado = lado;
         }
-    }
+
+        public abstract void Sumarizar(Summary summary);
+     }
 }

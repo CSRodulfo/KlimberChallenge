@@ -21,5 +21,10 @@ namespace DevelopmentChallenge.Data.Model
         {
             return (decimal)Math.PI * _lado;
         }
+
+        public override void Sumarizar(Summary summary)
+        {
+            summary.Sumarice(this);
+        }
     }
 }

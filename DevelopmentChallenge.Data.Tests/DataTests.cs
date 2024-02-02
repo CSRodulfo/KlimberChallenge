@@ -15,20 +15,20 @@ namespace DevelopmentChallenge.Data.Tests
         public void TestResumenListaVacia()
         {
             Assert.AreEqual("<h1>Lista vacía de formas!</h1>",
-                FormaGeometricaProcess.Imprimir(new List<ICalculator>(), 1));
+                FormaGeometricaProcess.Imprimir(new List<FormaGeometrica>(), 1));
         }
 
         [TestCase]
         public void TestResumenListaVaciaFormasEnIngles()
         {
             Assert.AreEqual("<h1>Empty list of shapes!</h1>",
-                FormaGeometricaProcess.Imprimir(new List<ICalculator>(), 2));
+                FormaGeometricaProcess.Imprimir(new List<FormaGeometrica>(), 2));
         }
 
         [TestCase]
         public void TestResumenListaConUnCuadrado()
         {
-            var cuadrados = new List<ICalculator> { new Cuadrado(5)};
+            var cuadrados = new List<FormaGeometrica> { new Cuadrado(5)};
 
             var resumen = FormaGeometricaProcess.Imprimir(cuadrados, FormaGeometricaProcess.Castellano);
 
@@ -38,7 +38,7 @@ namespace DevelopmentChallenge.Data.Tests
         [TestCase]
         public void TestResumenListaConMasCuadrados()
         {
-            var cuadrados = new List<ICalculator>
+            var cuadrados = new List<FormaGeometrica>
             {
                 new Cuadrado(5),
                 new Cuadrado(1),
@@ -53,7 +53,7 @@ namespace DevelopmentChallenge.Data.Tests
         [TestCase]
         public void TestResumenListaConMasTipos()
         {
-            var formas = new List<ICalculator>
+            var formas = new List<FormaGeometrica>
             {
                 new Cuadrado (5),
                 new Circulo (3),
@@ -74,7 +74,7 @@ namespace DevelopmentChallenge.Data.Tests
         [TestCase]
         public void TestResumenListaConMasTiposEnCastellano()
         {
-            var formas = new List<ICalculator>
+            var formas = new List<FormaGeometrica>
             {
                 new Cuadrado (5),
                 new Circulo (3),

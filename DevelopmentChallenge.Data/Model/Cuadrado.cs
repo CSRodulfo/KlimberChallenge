@@ -22,5 +22,10 @@ namespace DevelopmentChallenge.Data.Model
         {
             return _lado * 4;
         }
+
+        public override void Sumarizar(Summary summary)
+        {
+            summary.Sumarice(this);
+        }
     }
 }

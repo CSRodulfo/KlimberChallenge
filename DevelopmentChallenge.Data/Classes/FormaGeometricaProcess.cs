@@ -39,7 +39,7 @@ namespace DevelopmentChallenge.Data.Classes
         #endregion
 
 
-        public static string Imprimir(List<ICalculator> formas, int idioma)
+        public static string Imprimir(List<FormaGeometrica> formas, int idioma)
         {
             var sb = new StringBuilder();
 
@@ -60,49 +60,22 @@ namespace DevelopmentChallenge.Data.Classes
                     // default es inglés
                     sb.Append("<h1>Shapes report</h1>");
 
-                var numeroCuadrados = 0;
-                var numeroCirculos = 0;
-                var numeroTriangulos = 0;
-
-                var areaCuadrados = 0m;
-                var areaCirculos = 0m;
-                var areaTriangulos = 0m;
-
-                var perimetroCuadrados = 0m;
-                var perimetroCirculos = 0m;
-                var perimetroTriangulos = 0m;
+                Summary summary = new Summary();
 
                 for (var i = 0; i < formas.Count; i++)
                 {
-                    if (formas[i].GetType().Name == "Cuadrado")
-                    {
-                        numeroCuadrados++;
-                        areaCuadrados += formas[i].CalcularArea();
-                        perimetroCuadrados += formas[i].CalcularPerimetro();
-                    }
-                    if (formas[i].GetType().Name == "Circulo")
-                    {
-                        numeroCirculos++;
-                        areaCirculos += formas[i].CalcularArea();
-                        perimetroCirculos += formas[i].CalcularPerimetro();
-                    }
-                    if (formas[i].GetType().Name == "TrianguloEquilatero")
-                    {
-                        numeroTriangulos++;
-                        areaTriangulos += formas[i].CalcularArea();
-                        perimetroTriangulos += formas[i].CalcularPerimetro();
-                    }
+                   summary.Sumarice( formas[i]);
                 }
-                
-                sb.Append(ObtenerLinea(numeroCuadrados, areaCuadrados, perimetroCuadrados, Cuadrado, idioma));
-                sb.Append(ObtenerLinea(numeroCirculos, areaCirculos, perimetroCirculos, Circulo, idioma));
-                sb.Append(ObtenerLinea(numeroTriangulos, areaTriangulos, perimetroTriangulos, TrianguloEquilatero, idioma));
+
+                sb.Append(ObtenerLinea(summary.numeroCuadrados, summary.areaCuadrados, summary.perimetroCuadrados, Cuadrado, idioma));
+                sb.Append(ObtenerLinea(summary.numeroCirculos, summary.areaCirculos, summary.perimetroCirculos, Circulo, idioma));
+                sb.Append(ObtenerLinea(summary.numeroTriangulos, summary.areaTriangulos, summary.perimetroTriangulos, TrianguloEquilatero, idioma));
 
                 // FOOTER
                 sb.Append("TOTAL:<br/>");
-                sb.Append(numeroCuadrados + numeroCirculos + numeroTriangulos + " " + (idioma == Castellano ? "formas" : "shapes") + " ");
-                sb.Append((idioma == Castellano ? "Perimetro " : "Perimeter ") + (perimetroCuadrados + perimetroTriangulos + perimetroCirculos).ToString("#.##") + " ");
-                sb.Append("Area " + (areaCuadrados + areaCirculos + areaTriangulos).ToString("#.##"));
+                sb.Append(summary.numeroCuadrados + summary.numeroCirculos + summary.numeroTriangulos + " " + (idioma == Castellano ? "formas" : "shapes") + " ");
+                sb.Append((idioma == Castellano ? "Perimetro " : "Perimeter ") + (summary.perimetroCuadrados + summary.perimetroTriangulos + summary.perimetroCirculos).ToString("#.##") + " ");
+                sb.Append("Area " + (summary.areaCuadrados + summary.areaCirculos + summary.areaTriangulos).ToString("#.##"));
             }
 
             return sb.ToString();
