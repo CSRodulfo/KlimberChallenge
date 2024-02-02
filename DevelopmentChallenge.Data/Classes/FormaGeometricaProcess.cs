@@ -25,32 +25,13 @@ namespace DevelopmentChallenge.Data.Classes
 {
     public class FormaGeometricaProcess
     {
-        #region Formas
 
-        public const int Cuadrado = 1;
-        public const int TrianguloEquilatero = 2;
-        public const int Circulo = 3;
-        public const int Trapecio = 4;
-
-        #endregion
-
-        #region Idiomas
-
-        public const int Castellano = 1;
-        public const int Ingles = 2;
-
-        #endregion
-
-
-        public static string Imprimir(List<FormaGeometrica> formas, int idioma)
+        public static string Imprimir(List<FormaGeometrica> formas)
         {
             var sb = new StringBuilder();
 
-            if (!formas.Any())
-            {
-                sb.Append(Resource.EmptyList);
-            }
-            else
+            if (formas.Any())
+
             {
                 sb.Append(Resource.ShapesReport);
 
@@ -71,6 +52,10 @@ namespace DevelopmentChallenge.Data.Classes
                 sb.Append(summary.GetSummaryTotalNumero() + Resource.Shapes);
                 sb.Append(Resource.Perimeter + summary.GetSummaryTotalPerimetro().ToString("#.##") + " ");
                 sb.Append(Resource.Area + summary.GetSummaryTotalArea().ToString("#.##"));
+            }
+            else
+            {
+                sb.Append(Resource.EmptyList);
             }
 
             return sb.ToString();

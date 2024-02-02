@@ -21,7 +21,7 @@ namespace DevelopmentChallenge.Data.Tests
         public void TestResumenListaVacia()
         {
             Assert.AreEqual("<h1>Lista vacía de formas!</h1>",
-                FormaGeometricaProcess.Imprimir(new List<FormaGeometrica>(), 1));
+                FormaGeometricaProcess.Imprimir(new List<FormaGeometrica>()));
         }
 
         [TestCase]
@@ -29,7 +29,7 @@ namespace DevelopmentChallenge.Data.Tests
         {
             var cuadrados = new List<FormaGeometrica> { new Cuadrado(5) };
 
-            var resumen = FormaGeometricaProcess.Imprimir(cuadrados, FormaGeometricaProcess.Castellano);
+            var resumen = FormaGeometricaProcess.Imprimir(cuadrados);
 
             Assert.AreEqual("<h1>Reporte de Formas</h1>1 Cuadrado | Area 25 | Perimetro 20 <br/>TOTAL:<br/>1 formas Perimetro 20 Area 25", resumen);
         }
@@ -48,7 +48,7 @@ namespace DevelopmentChallenge.Data.Tests
                 new TrianguloEquilatero (4.2m)
             };
 
-            var resumen = FormaGeometricaProcess.Imprimir(formas, FormaGeometricaProcess.Castellano);
+            var resumen = FormaGeometricaProcess.Imprimir(formas);
 
             Assert.AreEqual(
                 "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>TOTAL:<br/>7 formas Perimetro 97,66 Area 91,65",
