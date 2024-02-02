@@ -54,11 +54,11 @@
     <Compile Include="Model\Cuadrado.cs" />
     <Compile Include="Model\FormaGeometrica.cs" />
     <Compile Include="Domain\ICalculator.cs" />
-    <Compile Include="Model\ResumenCuentaTrianguloEquilatero.cs" />
-    <Compile Include="Model\ResumenCuentaCirculo.cs" />
-    <Compile Include="Model\ResumenCuentaCuadrado.cs" />
-    <Compile Include="Model\ResumenCuenta.cs" />
-    <Compile Include="Model\Informe.cs" />
+    <Compile Include="Informe\ResumenCuentaTrianguloEquilatero.cs" />
+    <Compile Include="Informe\ResumenCuentaCirculo.cs" />
+    <Compile Include="Informe\ResumenCuentaCuadrado.cs" />
+    <Compile Include="Informe\ResumenCuenta.cs" />
+    <Compile Include="Informe\Informe.cs" />
     <Compile Include="Model\TrianguloEquilatero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
