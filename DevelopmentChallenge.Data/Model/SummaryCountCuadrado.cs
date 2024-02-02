@@ -19,5 +19,12 @@ namespace DevelopmentChallenge.Data.Model
         {
             return 1;
         }
+
+        public override string GetNombreFigura()
+        {
+            if (Numero == 0) return string.Empty;
+
+            return this.Numero == 1 ? Resource.Square : Resource.Squares;
+        }
     }
 }

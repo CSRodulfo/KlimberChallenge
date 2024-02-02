@@ -15,6 +15,7 @@
 using DevelopmentChallenge.Data.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -43,7 +44,7 @@ namespace DevelopmentChallenge.Data.Classes
 
         public static string Imprimir(List<FormaGeometrica> formas, int idioma)
         {
-           
+
             //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
 
 
@@ -51,76 +52,48 @@ namespace DevelopmentChallenge.Data.Classes
 
             if (!formas.Any())
             {
-                if (idioma == Castellano)
-                    sb.Append("<h1>Lista vacía de formas!</h1>");
-                else
-                    sb.Append("<h1>Empty list of shapes!</h1>");
+                sb.Append(Resource.EmptyList);
             }
             else
             {
-                // Hay por lo menos una forma
-                // HEADER
-               // if (idioma == Castellano)
-                    sb.Append(Resource.ShapesReport);
-                //else
-                    // default es inglés
-                  //  sb.Append("<h1>Shapes report</h1>");
+                sb.Append(Resource.ShapesReport);
 
                 Summary summary = new Summary();
 
                 for (var i = 0; i < formas.Count; i++)
                 {
-                   summary.Sumarice( formas[i]);
+                    summary.Sumarice(formas[i]);
                 }
 
                 foreach (var item in summary.GetSummary())
                 {
-                    sb.Append(ObtenerLinea(item.Numero, item.Area, item.Perimetro, item.Tipo(), idioma));
-
+                    sb.Append(ObtenerLinea(item, item.Tipo(), idioma));
                 }
 
-                
-
                 // FOOTER
-                sb.Append("TOTAL:<br/>");
-                sb.Append(summary.GetSummary().Sum(x => x.Numero) + " " + (idioma == Castellano ? "formas" : "shapes") + " ");
-                sb.Append((idioma == Castellano ? "Perimetro " : "Perimeter ") + (summary.GetSummary().Sum(x => x.Perimetro)).ToString("#.##") + " ");
-                sb.Append("Area " + (summary.GetSummary().Sum(x => x.Area)).ToString("#.##"));
+                sb.Append(Resource.Total);
+                sb.Append(summary.GetSummaryTotalNumero() + Resource.Shapes);
+                sb.Append(Resource.Perimeter + summary.GetSummaryTotalPerimetro().ToString("#.##") + " ");
+                sb.Append(Resource.Area + summary.GetSummaryTotalArea().ToString("#.##"));
             }
 
             return sb.ToString();
         }
 
-        private static string ObtenerLinea(int cantidad, decimal area, decimal perimetro, int tipo, int idioma)
+        private static string ObtenerLinea(SummaryCount summary, int tipo, int idioma)
         {
-            if (cantidad > 0)
+            if (summary.Numero > 0)
             {
-                if (idioma == Castellano)
-                    return $"{cantidad} {TraducirForma(tipo, cantidad, idioma)} | Area {area:#.##} | Perimetro {perimetro:#.##} <br/>";
-
-                return $"{cantidad} {TraducirForma(tipo, cantidad, idioma)} | Area {area:#.##} | Perimeter {perimetro:#.##} <br/>";
+                return $"{summary.Numero} {TraducirForma(summary, tipo, idioma)} | {Resource.Area}{summary.Area:#.##} | {Resource.Perimeter}{summary.Perimetro:#.##} <br/>";
             }
 
             return string.Empty;
         }
 
 
-        private static string TraducirForma(int tipo, int cantidad, int idioma)
+        private static string TraducirForma(SummaryCount summary, int tipo, int idioma)
         {
-            switch (tipo)
-            {
-                case Cuadrado:
-                    if (idioma == Castellano) return cantidad == 1 ? "Cuadrado" : "Cuadrados";
-                    else return cantidad == 1 ? "Square" : "Squares";
-                case Circulo:
-                    if (idioma == Castellano) return cantidad == 1 ? "Círculo" : "Círculos";
-                    else return cantidad == 1 ? "Circle" : "Circles";
-                case TrianguloEquilatero:
-                    if (idioma == Castellano) return cantidad == 1 ? "Triángulo" : "Triángulos";
-                    else return cantidad == 1 ? "Triangle" : "Triangles";
-            }
-
-            return string.Empty;
+            return summary.GetNombreFigura();
         }
     }
 }

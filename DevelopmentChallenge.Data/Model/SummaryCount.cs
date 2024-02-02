@@ -13,7 +13,10 @@ namespace DevelopmentChallenge.Data.Model
         public decimal Area { get; set; }
         public decimal Perimetro { get; set; }
 
+        public abstract string GetNombreFigura();
+
         public abstract int Tipo();
+
 
     }
 }
