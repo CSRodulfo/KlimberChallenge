@@ -44,10 +44,6 @@ namespace DevelopmentChallenge.Data.Classes
 
         public static string Imprimir(List<FormaGeometrica> formas, int idioma)
         {
-
-            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-
-
             var sb = new StringBuilder();
 
             if (!formas.Any())
@@ -67,7 +63,7 @@ namespace DevelopmentChallenge.Data.Classes
 
                 foreach (var item in summary.GetSummary())
                 {
-                    sb.Append(ObtenerLinea(item, item.Tipo(), idioma));
+                    sb.Append(ObtenerLinea(item));
                 }
 
                 // FOOTER
@@ -80,20 +76,14 @@ namespace DevelopmentChallenge.Data.Classes
             return sb.ToString();
         }
 
-        private static string ObtenerLinea(SummaryCount summary, int tipo, int idioma)
+        private static string ObtenerLinea(SummaryCount summary)
         {
-            if (summary.Numero > 0)
+            if (summary.ValidateNumero())
             {
-                return $"{summary.Numero} {TraducirForma(summary, tipo, idioma)} | {Resource.Area}{summary.Area:#.##} | {Resource.Perimeter}{summary.Perimetro:#.##} <br/>";
+                return $"{summary.Numero} {summary.GetNombreFigura()} | {Resource.Area}{summary.Area:#.##} | {Resource.Perimeter}{summary.Perimetro:#.##} <br/>";
             }
 
             return string.Empty;
-        }
-
-
-        private static string TraducirForma(SummaryCount summary, int tipo, int idioma)
-        {
-            return summary.GetNombreFigura();
         }
     }
 }

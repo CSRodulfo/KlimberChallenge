@@ -1,15 +1,13 @@
-﻿using System;
+﻿using DevelopmentChallenge.Data.Classes;
+using DevelopmentChallenge.Data.Model;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
-using DevelopmentChallenge.Data.Classes;
-using DevelopmentChallenge.Data.Model;
-using NUnit.Framework;
 
 namespace DevelopmentChallenge.Data.Tests
 {
     [TestFixture]
-    [SetCulture("es-AR")]
     public class DataTests
     {
         [SetUp]
@@ -18,7 +16,6 @@ namespace DevelopmentChallenge.Data.Tests
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-AR");
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("es-AR");
         }
-
 
         [TestCase]
         public void TestResumenListaVacia()
@@ -30,13 +27,13 @@ namespace DevelopmentChallenge.Data.Tests
         [TestCase]
         public void TestResumenListaConUnCuadrado()
         {
-            var cuadrados = new List<FormaGeometrica> { new Cuadrado(5)};
+            var cuadrados = new List<FormaGeometrica> { new Cuadrado(5) };
 
             var resumen = FormaGeometricaProcess.Imprimir(cuadrados, FormaGeometricaProcess.Castellano);
 
             Assert.AreEqual("<h1>Reporte de Formas</h1>1 Cuadrado | Area 25 | Perimetro 20 <br/>TOTAL:<br/>1 formas Perimetro 20 Area 25", resumen);
         }
-   
+
         [TestCase]
         public void TestResumenListaConMasTiposEnCastellano()
         {

@@ -1,15 +1,14 @@
-﻿using System;
+﻿using DevelopmentChallenge.Data.Classes;
+using DevelopmentChallenge.Data.Model;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
-using DevelopmentChallenge.Data.Classes;
-using DevelopmentChallenge.Data.Model;
-using NUnit.Framework;
 
 namespace DevelopmentChallenge.Data.Tests
 {
     [TestFixture]
-    public class DataTestsIngels
+    public class DataTestsIngles
     {
         [SetUp]
         public void SetUp()
@@ -19,13 +18,11 @@ namespace DevelopmentChallenge.Data.Tests
         }
 
         [TestCase]
-             public void TestResumenListaVaciaFormasEnIngles()
+        public void TestResumenListaVacia()
         {
             Assert.AreEqual("<h1>Empty list of shapes!</h1>",
                 FormaGeometricaProcess.Imprimir(new List<FormaGeometrica>(), 2));
         }
-
-  
 
         [TestCase]
         public void TestResumenListaConMasCuadrados()

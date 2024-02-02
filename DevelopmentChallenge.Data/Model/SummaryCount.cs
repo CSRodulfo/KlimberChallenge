@@ -15,8 +15,7 @@ namespace DevelopmentChallenge.Data.Model
 
         public abstract string GetNombreFigura();
 
-        public abstract int Tipo();
-
+        public bool ValidateNumero() { return Numero > 0; }
 
     }
 }
