@@ -11,7 +11,7 @@ namespace DevelopmentChallenge.Data.Model
         SummaryCountCuadrado _summaryCountCuadrdo;
         SummaryCountCirculo _summaryCountCirculo;
         SummaryCountTrianguloEquilatero _summaryCountTrianguloEquilato;
-        List<SummaryCount> _summary  ;
+        List<SummaryCount> _summary;
 
         public Summary()
         {
@@ -45,7 +45,7 @@ namespace DevelopmentChallenge.Data.Model
         }
 
         public List<SummaryCount> GetSummary()
-        {         
+        {
             return _summary;
         }
         public decimal GetSummaryTotalArea()
@@ -56,9 +56,20 @@ namespace DevelopmentChallenge.Data.Model
         {
             return _summary.Sum(x => x.Numero);
         }
-        public decimal GetSummaryTotalPerimetro() 
+        public decimal GetSummaryTotalPerimetro()
         {
             return _summary.Sum(x => x.Perimetro);
+        }
+
+        public void ObtenerLineas(StringBuilder sb)
+        {
+            foreach (var summary in _summary)
+            {
+                if (summary.ValidateNumero())
+                {
+                    sb.Append($"{summary.Numero} {summary.GetNombreFigura()} | {Resource.Area}{summary.Area:#.##} | {Resource.Perimeter}{summary.Perimetro:#.##} <br/>");
+                }
+            }
         }
     }
 }

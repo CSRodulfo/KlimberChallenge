@@ -34,18 +34,14 @@ namespace DevelopmentChallenge.Data.Classes
 
             {
                 sb.Append(Resource.ShapesReport);
-
                 Summary summary = new Summary();
 
-                for (var i = 0; i < formas.Count; i++)
+                foreach (var forma in formas)
                 {
-                    summary.Sumarice(formas[i]);
+                    summary.Sumarice(forma);
                 }
 
-                foreach (var item in summary.GetSummary())
-                {
-                    sb.Append(ObtenerLinea(item));
-                }
+                summary.ObtenerLineas(sb);
 
                 // FOOTER
                 sb.Append(Resource.Total);
