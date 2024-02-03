@@ -44,11 +44,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\FormaGeometrica.cs" />
+    <Compile Include="Classes\FormaGeometricaProcess.cs" />
+    <Compile Include="Domain\ISumarizarFormaGeometrica.cs" />
+    <Compile Include="Informe\ResumenCuentaTrapecio.cs" />
+    <Compile Include="Model\Trapecio.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Circulo.cs" />
+    <Compile Include="Model\Cuadrado.cs" />
+    <Compile Include="Model\FormaGeometrica.cs" />
+    <Compile Include="Domain\ICalculator.cs" />
+    <Compile Include="Informe\ResumenCuentaTrianguloEquilatero.cs" />
+    <Compile Include="Informe\ResumenCuentaCirculo.cs" />
+    <Compile Include="Informe\ResumenCuentaCuadrado.cs" />
+    <Compile Include="Informe\ResumenCuenta.cs" />
+    <Compile Include="Informe\Informe.cs" />
+    <Compile Include="Model\TrianguloEquilatero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.it.resx" />
+    <EmbeddedResource Include="Resource.es.resx" />
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
