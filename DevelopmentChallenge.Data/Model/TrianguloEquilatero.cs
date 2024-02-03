@@ -8,7 +8,7 @@ namespace DevelopmentChallenge.Data.Model
 {
     public class TrianguloEquilatero : FormaGeometrica, ICalculator
     {
-        public TrianguloEquilatero(decimal lado) 
+        public TrianguloEquilatero(decimal lado)
             : base(lado)
         {
         }

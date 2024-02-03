@@ -37,7 +37,7 @@ namespace DevelopmentChallenge.Data.Tests
         [TestCase]
         public void TestResumenListaConUnTrapecio()
         {
-            var Piazze = new List<FormaGeometrica> { new Trapecio(5,5) };
+            var Piazze = new List<FormaGeometrica> { new Trapecio(5, 5) };
 
             var resumen = FormaGeometricaProcess.Imprimir(Piazze);
 

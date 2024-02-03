@@ -8,7 +8,6 @@ namespace DevelopmentChallenge.Data.Model
 {
     public abstract class ResumenCuenta
     {
-
         public int Numero { get; set; }
         public decimal Area { get; set; }
         public decimal Perimetro { get; set; }
