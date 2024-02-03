@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public class ResumenCuentaCuadrado : ResumenCuenta
+    public class ResumenCuentaTrapecio : ResumenCuenta
     {
-        public static ResumenCuentaCuadrado resumenCuentaCirculoFactory(Informe informe)
+        public static ResumenCuentaTrapecio resumenCuentaCirculoFactory(Informe informe)
         {
-            var rtn = new ResumenCuentaCuadrado();
+            var rtn = new ResumenCuentaTrapecio();
             informe._summary.Add(rtn);
             return rtn;
         }
         public override string GetNombreFigura()
         {
-            return this.Numero == 1 ? Resource.Square : Resource.Squares;
+            return this.Numero == 1 ? Resource.Trapeze : Resource.Trapezes;
         }
     }
 }

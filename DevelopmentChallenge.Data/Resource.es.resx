@@ -147,6 +147,12 @@
   <data name="Total" xml:space="preserve">
     <value>TOTAL:&lt;br/&gt;</value>
   </data>
+  <data name="Trapeze" xml:space="preserve">
+    <value>Trapecio</value>
+  </data>
+  <data name="Trapezes" xml:space="preserve">
+    <value>Trapecios</value>
+  </data>
   <data name="Triangle" xml:space="preserve">
     <value>Triángulo</value>
   </data>

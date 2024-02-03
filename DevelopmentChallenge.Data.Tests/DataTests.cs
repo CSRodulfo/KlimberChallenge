@@ -35,6 +35,17 @@ namespace DevelopmentChallenge.Data.Tests
         }
 
         [TestCase]
+        public void TestResumenListaConUnTrapecio()
+        {
+            var cuadrados = new List<FormaGeometrica> { new Trapecio(5,5) };
+
+            var resumen = FormaGeometricaProcess.Imprimir(cuadrados);
+
+            Assert.AreEqual("<h1>Reporte de Formas</h1>1 Trapecio | Area 25 | Perimetro 20 <br/>TOTAL:<br/>1 formas Perimetro 20 Area 25", resumen);
+        }
+
+
+        [TestCase]
         public void TestResumenListaConMasTipos()
         {
             var formas = new List<FormaGeometrica>

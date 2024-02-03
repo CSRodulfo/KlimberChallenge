@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\FormaGeometricaProcess.cs" />
+    <Compile Include="Informe\ResumenCuentaTrapecio.cs" />
     <Compile Include="Model\Trapecio.cs" />
     <Compile Include="Resource1.Designer.cs">
       <AutoGen>True</AutoGen>

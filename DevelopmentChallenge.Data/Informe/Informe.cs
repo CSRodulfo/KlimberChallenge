@@ -8,20 +8,19 @@ namespace DevelopmentChallenge.Data.Model
 {
     public class Informe
     {
+        public List<ResumenCuenta> _summary = new List<ResumenCuenta>();
+
         ResumenCuentaCuadrado _summaryCountCuadrdo;
         ResumenCuentaCirculo _summaryCountCirculo;
-        ResumenCuentaTrianguloEquilatero _summaryCountTrianguloEquilato;
-        List<ResumenCuenta> _summary;
+        ResumenCuentaTrianguloEquilatero _summaryCountEquilatero;
+        ResumenCuentaTrapecio _summaryCountTrapecio;
 
         public Informe()
         {
-            _summary = new List<ResumenCuenta>();
-            _summaryCountCuadrdo = new ResumenCuentaCuadrado();
-            _summaryCountCirculo = new ResumenCuentaCirculo();
-            _summaryCountTrianguloEquilato = new ResumenCuentaTrianguloEquilatero();
-            _summary.Add(_summaryCountCuadrdo);
-            _summary.Add(_summaryCountCirculo);
-            _summary.Add(_summaryCountTrianguloEquilato);
+            _summaryCountCuadrdo = ResumenCuentaCuadrado.resumenCuentaCirculoFactory(this); ;
+            _summaryCountCirculo = ResumenCuentaCirculo.resumenCuentaCirculoFactory(this);
+            _summaryCountEquilatero = ResumenCuentaTrianguloEquilatero.resumenCuentaCirculoFactory(this);
+            _summaryCountTrapecio = ResumenCuentaTrapecio.resumenCuentaCirculoFactory(this);
         }
 
         public void Sumarice(FormaGeometrica formaGeometrica)
@@ -41,7 +40,12 @@ namespace DevelopmentChallenge.Data.Model
 
         public void Sumarice(TrianguloEquilatero formaGeometrica)
         {
-            _summaryCountTrianguloEquilato.Sumarizar(formaGeometrica);
+            _summaryCountEquilatero.Sumarizar(formaGeometrica);
+        }
+
+        public void Sumarice(Trapecio formaGeometrica)
+        {
+            _summaryCountTrapecio.Sumarizar(formaGeometrica);
         }
 
         public List<ResumenCuenta> GetSummary()

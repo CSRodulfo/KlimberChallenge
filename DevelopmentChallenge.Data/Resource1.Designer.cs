@@ -151,6 +151,24 @@ namespace DevelopmentChallenge.Data {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trapeze.
+        /// </summary>
+        internal static string Trapeze {
+            get {
+                return ResourceManager.GetString("Trapeze", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trapezes.
+        /// </summary>
+        internal static string Trapezes {
+            get {
+                return ResourceManager.GetString("Trapezes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Triangle.
         /// </summary>
         internal static string Triangle {
