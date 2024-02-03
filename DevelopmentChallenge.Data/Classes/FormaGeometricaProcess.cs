@@ -13,19 +13,14 @@
  */
 
 using DevelopmentChallenge.Data.Model;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Threading;
 
 namespace DevelopmentChallenge.Data.Classes
 {
     public class FormaGeometricaProcess
     {
-
         public static string Imprimir(List<FormaGeometrica> formas)
         {
             var sb = new StringBuilder();
@@ -55,16 +50,6 @@ namespace DevelopmentChallenge.Data.Classes
             }
 
             return sb.ToString();
-        }
-
-        private static string ObtenerLinea(ResumenCuenta resumen)
-        {
-            if (resumen.ValidateNumero())
-            {
-                return $"{resumen.Numero} {resumen.GetNombreFigura()} | {Resource.Area}{resumen.Area:#.##} | {Resource.Perimeter}{resumen.Perimetro:#.##} <br/>";
-            }
-
-            return string.Empty;
         }
     }
 }

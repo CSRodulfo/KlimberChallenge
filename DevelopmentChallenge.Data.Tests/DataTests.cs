@@ -35,9 +35,18 @@ namespace DevelopmentChallenge.Data.Tests
         }
 
         [TestCase]
+        public void TestUnCuadrado()
+        {
+            var cuadrados = new Cuadrado(5);
+
+            Assert.AreEqual( 25, cuadrados.CalcularArea());
+            Assert.AreEqual( 20, cuadrados.CalcularPerimetro());
+        }
+
+        [TestCase]
         public void TestResumenListaConUnTrapecio()
         {
-            var cuadrados = new List<FormaGeometrica> { new Trapecio(5,5) };
+            var cuadrados = new List<FormaGeometrica> { new Trapecio(5, 5) };
 
             var resumen = FormaGeometricaProcess.Imprimir(cuadrados);
 

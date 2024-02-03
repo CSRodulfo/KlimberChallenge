@@ -8,7 +8,6 @@ namespace DevelopmentChallenge.Data.Model
 {
     public class ResumenCuentaCirculo : ResumenCuenta
     {
-
         public static ResumenCuentaCirculo resumenCuentaCirculoFactory(Informe informe)
         {
             var rtn = new ResumenCuentaCirculo();
