@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public class Informe
+    public class Informe : ISumarizarFormaGeometrica
     {
         public List<ResumenCuenta> _summary = new List<ResumenCuenta>();
 

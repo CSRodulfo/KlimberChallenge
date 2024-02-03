@@ -23,7 +23,7 @@ namespace DevelopmentChallenge.Data.Model
             return _lado * 3;
         }
 
-        public override void Sumarizar(Informe summary)
+        public override void Sumarizar(ISumarizarFormaGeometrica summary)
         {
             summary.Sumarice(this);
         }

@@ -34,20 +34,20 @@ namespace DevelopmentChallenge.Data.Classes
 
             {
                 sb.Append(Resource.ShapesReport);
-                Informe summary = new Informe();
+                Informe informe = new Informe();
 
                 foreach (var forma in formas)
                 {
-                    summary.Sumarice(forma);
+                    informe.Sumarice(forma);
                 }
 
-                summary.ObtenerLineas(sb);
+                informe.ObtenerLineas(sb);
 
                 // FOOTER
                 sb.Append(Resource.Total);
-                sb.Append(summary.GetSummaryTotalNumero() + Resource.Shapes);
-                sb.Append(Resource.Perimeter + summary.GetSummaryTotalPerimetro().ToString("#.##") + " ");
-                sb.Append(Resource.Area + summary.GetSummaryTotalArea().ToString("#.##"));
+                sb.Append(informe.GetSummaryTotalNumero() + Resource.Shapes);
+                sb.Append(Resource.Perimeter + informe.GetSummaryTotalPerimetro().ToString("#.##") + " ");
+                sb.Append(Resource.Area + informe.GetSummaryTotalArea().ToString("#.##"));
             }
             else
             {
@@ -57,11 +57,11 @@ namespace DevelopmentChallenge.Data.Classes
             return sb.ToString();
         }
 
-        private static string ObtenerLinea(ResumenCuenta summary)
+        private static string ObtenerLinea(ResumenCuenta resumen)
         {
-            if (summary.ValidateNumero())
+            if (resumen.ValidateNumero())
             {
-                return $"{summary.Numero} {summary.GetNombreFigura()} | {Resource.Area}{summary.Area:#.##} | {Resource.Perimeter}{summary.Perimetro:#.##} <br/>";
+                return $"{resumen.Numero} {resumen.GetNombreFigura()} | {Resource.Area}{resumen.Area:#.##} | {Resource.Perimeter}{resumen.Perimetro:#.##} <br/>";
             }
 
             return string.Empty;

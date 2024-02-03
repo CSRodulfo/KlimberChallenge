@@ -14,6 +14,6 @@ namespace DevelopmentChallenge.Data.Model
             _lado = lado;
         }
 
-        public abstract void Sumarizar(Informe summary);
+        public abstract void Sumarizar(ISumarizarFormaGeometrica summary);
      }
 }
