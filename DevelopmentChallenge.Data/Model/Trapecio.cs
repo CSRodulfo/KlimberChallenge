@@ -6,21 +6,25 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Model
 {
-    public class TrianguloEquilatero : FormaGeometrica, ICalculator
+    public class Trapecio : FormaGeometrica, ICalculator
     {
-        public TrianguloEquilatero(decimal lado) 
+        protected decimal _altura;
+
+        public Trapecio(decimal lado, decimal altura) 
             : base(lado)
         {
+            _altura = altura;
         }
 
         public decimal CalcularArea()
         {
-            return ((decimal)Math.Sqrt(3) / 4) * _lado * _lado;
+            // 0.5 * (baseMayor + baseMenor) * altura;
+            return ((_lado + _lado)/2) * _altura;
         }
 
         public decimal CalcularPerimetro()
         {
-            return _lado * 3;
+            return _lado + _lado + (2 * _altura);
         }
 
         public override void Sumarizar(Informe summary)

@@ -35,7 +35,7 @@ namespace DevelopmentChallenge.Data.Tests
         }
 
         [TestCase]
-        public void TestResumenListaConMasTiposEnCastellano()
+        public void TestResumenListaConMasTipos()
         {
             var formas = new List<FormaGeometrica>
             {
@@ -53,6 +53,21 @@ namespace DevelopmentChallenge.Data.Tests
             Assert.AreEqual(
                 "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>TOTAL:<br/>7 formas Perimetro 97,66 Area 91,65",
                 resumen);
+        }
+
+        [TestCase]
+        public void TestResumenListaConMasCuadrados()
+        {
+            var cuadrados = new List<FormaGeometrica>
+            {
+                new Cuadrado(5),
+                new Cuadrado(1),
+                new Cuadrado(3)
+            };
+
+            var resumen = FormaGeometricaProcess.Imprimir(cuadrados);
+
+            Assert.AreEqual("<h1>Reporte de Formas</h1>3 Cuadrados | Area 35 | Perimetro 36 <br/>TOTAL:<br/>3 formas Perimetro 36 Area 35", resumen);
         }
     }
 }

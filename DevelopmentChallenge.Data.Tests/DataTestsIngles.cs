@@ -40,6 +40,16 @@ namespace DevelopmentChallenge.Data.Tests
         }
 
         [TestCase]
+        public void TestResumenListaConUnCuadrado()
+        {
+            var cuadrados = new List<FormaGeometrica> { new Cuadrado(5) };
+
+            var resumen = FormaGeometricaProcess.Imprimir(cuadrados);
+
+            Assert.AreEqual("<h1>Shapes report</h1>1 Square | Area 25 | Perimeter 20 <br/>TOTAL:<br/>1 shapes Perimeter 20 Area 25", resumen);
+        }
+
+        [TestCase]
         public void TestResumenListaConMasTipos()
         {
             var formas = new List<FormaGeometrica>
